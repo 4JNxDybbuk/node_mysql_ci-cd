@@ -1,0 +1,20 @@
+{
+  "name": "user-management-with-mysql",
+  "version": "1.0.0",
+  "description": "User management System",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "prod": "node index.js"
+  },
+  "author": "Aniket Dutta",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2",
+    "mysql": "^2.18.1",
+    "user-management-with-mysql": "file:"
+  }
+}
