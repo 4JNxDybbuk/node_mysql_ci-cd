@@ -98,7 +98,7 @@ router.post('/edituser/:id', (req, res) => {
 router.get('/deleteuser/:id', (req, res) => {
     connectDB.query('DELETE FROM usertbl WHERE userID= ?', [req.params.id], (err, rows) => {
         if (!err) {
-            res.redirect('/')
+            res.redirect('/api')
         } else
             console.log("Error => " + err)
     })
