@@ -49,7 +49,7 @@ jobs:
             - name: Create datbase & tables
               run: |
                 mysql -h 127.0.0.1 -P 3306 -u admin -padmin123 -e "CREATE DATABASE IF NOT EXISTS UserDB;"
-                mysql -h 127.0.0.1 -P 3306 -u admin -padmin123 testdb < script.sql
+                mysql -h 127.0.0.1 -P 3306 -u admin -padmin123 UserDB < script.sql
             
             - name: Setup env varialbles
               env:
