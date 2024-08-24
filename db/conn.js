@@ -10,8 +10,8 @@ const connectDB = mysql.createConnection({
 })
 
 connectDB.connect((err) => {
-    console.log("HOST:", DB_HOST)
-    console.log("DB:", DB_DATABASE)
+    console.log("HOST:", process.env.DB_HOST)
+    console.log("DB:",  process.env.DB_DATABASE)
     if (!err)
         console.log('MySql Connected Successfully!')
     else
