@@ -62,7 +62,7 @@ jobs:
                 echo "DB_PORT=3307" >> .env
                 echo "DB_USER=admin" >> .env
                 echo "DB_PASSWORD=admin123" >> .env
-                echo "DB_NAME=UserDB" >> .env
+                echo "DB_DATABASE=UserDB" >> .env
             
             - name: Start node server
               run: npm run prod
