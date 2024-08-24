@@ -67,7 +67,8 @@ jobs:
                 echo "DB_DATABASE=UserDB" >> .env
             
             - name: Start node server
-              run: npm run prod
+              run: |
+                nohup npm run prod &
 
             - name: Job completed
               run: echo "Server stared!!"
