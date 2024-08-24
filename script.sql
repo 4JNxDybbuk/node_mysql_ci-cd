@@ -13,5 +13,5 @@ CREATE TABLE `usertbl` (
  
  
 LOCK TABLES `usertbl` WRITE;
-INSERT INTO `usertbl` VALUES(6 ,'Suraj' , 'Ghosh' , 'kob@gmail', '98745620' , 'comment 6' , 'inactive' );
+INSERT INTO `usertbl` VALUES(1 ,'Aniket' , 'Dutta' , 'aniket@gmail', '98745620' , 'comment 6' , 'inactive' );
 UNLOCK TABLES;
