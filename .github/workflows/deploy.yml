@@ -68,3 +68,6 @@ jobs:
             
             - name: Start node server
               run: npm run prod
+
+            - name: Job completed
+              run: echo "Server stared!!"
