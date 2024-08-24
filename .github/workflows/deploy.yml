@@ -66,9 +66,28 @@ jobs:
                 echo "DB_PASSWORD=admin123" >> .env
                 echo "DB_DATABASE=UserDB" >> .env
             
-            - name: Start node server
+              # nohup: This command runs the process in a way that it ignores the hangup signal, which allows it to keep running even after the terminal that started it has been closed.
+              # &: This puts the process in the background, allowing the workflow to continue with subsequent steps (if any) or to complete.
+            # - name: Start node server
+            #   run: |
+            #     nohup npm run prod &
+
+
+            - name: Install Ngrok
+              run: |
+                curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | tee /etc/apt/trusted.gpg.d/ngrok.asc > /dev/null
+                echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | tee /etc/apt/sources.list.d/ngrok.list
+                apt-get update && apt-get install ngrok
+            
+            - name: Start Node.js Server and Ngrok
               run: |
                 nohup npm run prod &
+                nohup ngrok http 8080 &
+                sleep 10
+
+            - name: Get Ngrok URL
+              run: |
+                curl --silent http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url
 
             - name: Job completed
               run: echo "Server stared!!"
