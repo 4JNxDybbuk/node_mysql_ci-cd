@@ -15,7 +15,7 @@ jobs:
             mysql:
                 image: mysql:8.0
                 ports:
-                    - 3307:3307
+                    - 3306:3306
                 env:
                     MYSQL_USER: admin
                     MYSQL_PASSWORD: admin123
@@ -45,21 +45,21 @@ jobs:
 
             - name: Mysql setup
               run: |
-                until mysqladmin ping -h 127.0.0.1 -P 3307 --user=admin --password=admin123 --silent; do
+                until mysqladmin ping -h 127.0.0.1 -P 3306 --user=admin --password=admin123 --silent; do
                 echo 'Waiting for MySQL...'
                 sleep 3
                 done
             
             - name: Create datbase & tables
               run: |
-                mysql -h 127.0.0.1 -P 3307 -u admin -padmin123 -e "CREATE DATABASE IF NOT EXISTS UserDB;"
-                mysql -h 127.0.0.1 -P 3307 -u admin -padmin123 UserDB < script.sql
+                mysql -h 127.0.0.1 -P 3306 -u admin -padmin123 -e "CREATE DATABASE IF NOT EXISTS UserDB;"
+                mysql -h 127.0.0.1 -P 3306 -u admin -padmin123 UserDB < script.sql
             
             - name: Setup env varialbles
               env:
                 PORT: 8080
                 DB_HOST: 127.0.0.1
-                DB_PORT: 3307
+                DB_PORT: 3306
                 DB_USER: admin
                 DB_PASSWORD: admin123
                 DB_DATABASE: UserDB
