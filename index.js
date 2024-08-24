@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 //Set Template Engine.
-app.engine('.hbs' , exphbs.engine({ extname: '.hbs'}))
-app.set('view engine' , 'hbs')
+app.engine('.hbs', exphbs.engine({ extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 // Set routes middlewares.
 const userRoute = require('./routes/user')
-app.use('/api' , userRoute)
+app.use('/api', userRoute)
 
-app.get('/' , (req, res)=>res.send("<h1>Server is running...</h1>"))
+app.get('/', (req, res) => res.send(`<h1>Server is running at port ${port} ...</h1>`))
 
-app.listen(port , ()=> console.log(`Node Server Started at ${port}`))
+app.listen(port, () => console.log(`Node Server Started at ${port}`))
