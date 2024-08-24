@@ -11,7 +11,7 @@ jobs:
 
         # run mysql in docker container
         services:
-            
+
             mysql:
                 image: mysql:8.0
                 ports:
@@ -61,7 +61,7 @@ jobs:
                 DB_PORT: 3306
                 DB_USER: admin
                 DB_PASSWORD: admin123
-                DB_NAME: UserDB
+                DB_DATABASE: UserDB
               run: echo "Env setup successfully.."
             
             - name: Start node server
