@@ -11,6 +11,7 @@ jobs:
 
         # run mysql in docker container
         services:
+            
             mysql:
                 image: mysql:8.0
                 ports:
@@ -22,10 +23,12 @@ jobs:
                     MYSQL_DATABASE: UserDB
                 
                 options: >-
+                    --default-authentication-plugin=mysql_native_password
                     --health-cmd="mysqladmin ping --silent"
                     --health-interval=10s
                     --health-timeout=5s
                     --health-retries=3
+
         # Steps for running node & mysql
         steps:
             - name: Checkout repository
