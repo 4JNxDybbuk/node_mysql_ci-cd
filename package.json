@@ -15,6 +15,7 @@
     "express": "^4.17.3",
     "express-handlebars": "^6.0.2",
     "mysql": "^2.18.1",
+    "mysql2": "^3.11.0",
     "user-management-with-mysql": "file:"
   }
 }
